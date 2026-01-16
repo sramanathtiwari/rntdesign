@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramanath Tiwari: Resume</title>
+    <style>
+    /* Ensure the body and html elements have no default margin/padding */
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;  /*Optional: hides the main page scrollbar if you only want the PDF's scrollbar */
+    }
+
+    /* Set the PDF container to 100% width and 100% of the viewport height */
+    .pdf-container {
+        width: 100vw; /* 100% of the viewport width */
+        height: 100vh; /* 100% of the viewport height */
+        border: none; /* Removes default iframe/object border */
+    }
+    p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #292929;
+    padding: 8px 10px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: auto;
+    display: inline-block;
+    background: #f1f1f1;
+    }
+     p a{
+        text-decoration: none;
+        color: #4e1dff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+     }
+     p a:hover{
+        color: #ddd;
+        background: #4e1dff;
+        padding: 2px;
+        border-radius: 4px;
+     }
+</style>
+</head>
+<body>
+    <object data="assets/files/Ramanath-Tiwari_cv.pdf" type="application/pdf" title="Embedded PDF Viewer" class="pdf-container">
+        <p>Your browser does not support PDFs. <a href="assets/files/Ramanath-Tiwari_cv.pdf">Download rnt resume</a> instead.</p>
+    </object>
+</body>
+</html>
