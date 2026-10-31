@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prestigious PM homepage: my approach</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bur:#7e2530;--navy:#19233a;--ink:#2b2d31;--grey:#5b6068;--line:#dadde2;--soft:#f4f5f7;--serif:'Source Serif 4',Georgia,serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;background:#fff}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.top{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;font-size:14px}
+.top nav{display:flex;gap:22px;flex-wrap:wrap}
+.top nav a{text-decoration:none;color:var(--grey)}
+.top nav a:hover,.top nav a.on{color:var(--bur)}
+.top nav a.on{font-weight:600}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(36px,5.5vw,60px);line-height:1.1}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin-bottom:12px}
+.lead{margin:0 0 36px;max-width:680px;color:var(--grey)}
+.eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--bur);margin:0 0 14px}
+section{padding:88px 0}
+section.alt{background:var(--soft)}
+.hero{padding:80px 0 72px}
+.hero p.big{margin:20px 0 0;max-width:700px;font-size:19px;color:var(--ink)}
+.card,.three>div,.step,.panel{background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.three>div{padding:26px 28px}
+.three h3{font-size:21px;margin-bottom:12px}
+.three ul{margin:0;padding-left:20px}
+.three li{margin-bottom:8px}
+.prio{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.prio li{display:grid;grid-template-columns:44px 1fr 200px;gap:20px;align-items:center;padding:20px 26px;background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07)}
+.pn{width:36px;height:36px;border-radius:18px;background:var(--bur);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.prio b{color:var(--navy);font-size:18px}
+.prio p{margin:2px 0 0;color:var(--grey);font-size:15.5px}
+.where small,.jr small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--grey)}
+.where a,.jr a{color:var(--bur);font-weight:600;text-decoration:none}
+.where a:hover,.jr a:hover{text-decoration:underline}
+.jr{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;padding:32px;background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07)}
+.jr>div{position:relative;padding:34px 24px 0 0}
+.jr>div:before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:#cfd3d9}
+.jr>div:after{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:8px;background:#fff;border:3px solid var(--navy)}
+.jr>div.last:before{background:var(--bur);right:24px}
+.jr>div.last:after{background:var(--bur);border-color:var(--bur)}
+.jr strong{display:block;font-size:22px;line-height:1.25;color:var(--navy)}
+.jr .last strong{color:var(--bur)}
+.jr span{display:block;margin:4px 0 10px;font-size:15px;color:var(--grey)}
+.jr small{text-transform:none;letter-spacing:0;font-size:13.5px}
+.jr small a{margin-right:2px}
+.panel{padding:28px 32px}
+.panel+.panel{margin-top:24px}
+.panel h3{font-size:21px;margin-bottom:16px}
+.tree{margin:0;padding:0;list-style:none;text-align:center}
+.tree>li>.home{display:inline-block;background:var(--bur);color:#fff;font-weight:700;padding:14px 40px;border-radius:6px}
+.tree ul{list-style:none;margin:0;padding:24px 0 0;display:grid;grid-template-columns:repeat(7,1fr);gap:18px;position:relative}
+.tree ul:before{content:"";position:absolute;top:0;left:calc(100%/14);right:calc(100%/14);height:2px;background:var(--bur)}
+.tree ul:after{content:"";position:absolute;top:-24px;left:50%;height:24px;width:2px;background:var(--bur);margin-left:-1px}
+.tree ul li{position:relative;padding-top:24px}
+.tree ul li:before{content:"";position:absolute;top:-24px;left:50%;height:48px;width:2px;background:var(--bur);margin-left:-1px}
+.tree .box{border:1.5px solid var(--navy);border-radius:6px;padding:14px 8px;min-height:80px;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--navy);font-size:14px;line-height:1.35;background:#fff;position:relative}
+.tree small{display:block;margin-top:8px;font-size:12.5px;color:var(--grey)}
+.n{color:var(--bur);font-weight:700}
+.kr{display:grid;grid-template-columns:320px 1fr;gap:24px;padding:13px 0;align-items:center}
+.kr+.kr,.mv+.mv{border-top:1px solid var(--line)}
+.kr .n{display:inline-block;width:30px}
+.kr b:not(.n),.mvname b:not(.n){color:var(--navy)}
+.mvlist{display:flex;flex-direction:column;gap:12px}
+.mv{display:grid;grid-template-columns:260px 1fr 1fr 1.7fr;gap:28px;padding:18px 22px;background:var(--soft);border-radius:6px;font-size:16.5px;line-height:1.5;align-items:start;border-top:0!important}
+.mv small{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--grey)}
+.mvname{display:flex;gap:12px}
+.audit{display:grid;grid-template-columns:330px 1fr;gap:40px;align-items:start}
+.shot{position:sticky;top:80px;padding:24px 58px;background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07)}
+.shot .img{position:relative}
+.shot img{display:block;width:100%;height:auto;border:1px solid #cfd3d9}
+.mk{position:absolute;width:24px;height:24px;border-radius:12px;background:var(--bur);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.mk:hover{background:var(--navy)}
+.mk:after{content:"";position:absolute;top:11px;width:10px;height:2px;background:var(--bur)}
+.mk.l{left:-34px}.mk.l:after{left:24px}
+.mk.r{right:-34px}.mk.r:after{right:24px}
+.shot small{display:block;margin-top:14px;text-align:center;font-size:13px;color:var(--grey)}
+.row{background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07);margin-bottom:12px}
+.row summary{display:grid;grid-template-columns:30px 1fr auto 18px;gap:16px;align-items:center;padding:16px 20px;cursor:pointer;list-style:none}
+.row summary::-webkit-details-marker{display:none}
+.row summary:after{content:"";width:9px;height:9px;border-right:2px solid var(--grey);border-bottom:2px solid var(--grey);transform:rotate(45deg);transition:transform .15s}
+.row[open] summary:after{transform:rotate(225deg)}
+.badge{width:28px;height:28px;border-radius:14px;background:var(--bur);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.rt b{display:block;color:var(--navy);font-size:17px;line-height:1.35}
+.act{display:block;margin-top:2px;font-size:15px;line-height:1.45;color:var(--bur)}
+.act:before{content:"Do: ";font-weight:700}
+.tag{font-size:12px;line-height:1.3;font-weight:600;padding:5px 10px;border-radius:12px;white-space:nowrap}
+.tag.keep{background:#eef1f6;color:var(--navy)}
+.tag.move{background:#f9eeef;color:var(--bur)}
+.row .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 20px 66px}
+.row .two>div{padding:14px 16px;border-radius:6px}
+.row .two span{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.row .two p{margin:0;font-size:15.5px;line-height:1.45}
+.row .w{background:#eef1f6}.row .w span{color:var(--navy)}
+.row .o{background:#f9eeef}.row .o span{color:var(--bur)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px;font-size:14px;color:var(--grey);align-items:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{padding:24px 26px}
+.step .n{font-family:var(--serif);font-size:20px}
+.step b{display:block;margin:2px 0 6px;font-size:19px;color:var(--navy)}
+.step p{margin:0 0 12px;font-size:15.5px;line-height:1.5}
+.step small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--bur);margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid2 .panel+.panel{margin-top:0}
+.list div{padding:10px 0}.list div+div{border-top:1px solid var(--line)}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sw i{display:block;height:64px;border-radius:4px;border:1px solid transparent}
+.sw b{display:block;margin-top:8px;font-size:14px;color:var(--navy)}
+.sw span{font-size:12.5px;color:var(--grey)}
+.type div{display:flex;align-items:baseline;gap:16px;padding:10px 0}.type div+div{border-top:1px solid var(--line)}
+.type small{flex:none;width:90px;font-size:12.5px;color:var(--grey)}
+.note{font-size:13px;color:var(--grey);margin:12px 0 0}
+.hand{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;padding:12px 32px}
+.hand div{padding:12px 0;border-bottom:1px solid var(--line)}
+.hand div:nth-last-child(-n+2){border-bottom:0}
+.qgs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.qg{background:#fff;border:1px solid #d3d7de;border-radius:8px;box-shadow:0 1px 3px rgba(25,35,58,.07);padding:24px 26px}
+.qg h3{font-size:20px;margin-bottom:8px}
+.q{display:grid;grid-template-columns:40px 1fr;padding:14px 0;font-size:17px;line-height:1.5}
+.q+.q{border-top:1px solid var(--line)}
+.q b{font-family:var(--serif);font-size:20px;color:var(--bur)}
+.close{padding:48px 40px;background:var(--navy);color:#fff;border-radius:8px}
+.close p{margin:0;max-width:760px;font-family:var(--serif);font-size:clamp(21px,2.8vw,28px);line-height:1.5}
+.close small{display:block;margin-top:20px;font-size:14px;color:#dfe3ea}
+footer{padding:0 0 72px}
+@media (max-width:900px){
+ .three,.steps,.grid2,.qgs{grid-template-columns:1fr}
+ .prio li{grid-template-columns:36px 1fr;gap:12px}
+ .prio .where{grid-column:2}
+ .jr{grid-template-columns:1fr 1fr;row-gap:28px}
+ .tree ul{grid-template-columns:1fr;gap:12px;padding-top:0}
+ .tree ul:before,.tree ul:after,.tree ul li:before{display:none}
+ .tree ul li{padding-top:0}.tree .box{justify-content:flex-start;padding:12px 16px;min-height:0}.tree small{display:none}
+ .tree>li>.home{margin-bottom:20px}
+ .kr,.mv{grid-template-columns:1fr;gap:6px}
+ .audit{grid-template-columns:1fr}.shot{position:relative;top:0;max-width:320px;margin:0 auto 12px}
+ .row summary{grid-template-columns:30px 1fr 18px}.row .tag{grid-column:2;justify-self:start}
+ .row .two{grid-template-columns:1fr;padding:0 20px 20px}
+ .hand{grid-template-columns:1fr;padding:8px 24px}.hand div:nth-last-child(2){border-bottom:1px solid var(--line)}
+ .top nav{display:none}
+ .close{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><b style="color:var(--navy)">Ramanath Tiwari</b><nav><a href="#summary">Summary</a><a href="#priorities">Priorities</a><a href="#landing">Landing page</a><a href="#audit">Section by section</a><a href="#process">Process</a><a href="#questions">Questions</a></nav></div></div>
+
+<header class="hero"><div class="wrap">
+<p class="eyebrow">A first look at the Prestigious PM homepage</p>
+<h1>How I would approach the Prestigious PM homepage</h1>
+<p class="big">This is based on the Prestigious PM homepage screenshot only. I have not seen any Prestigious PM analytics or user research, so everything here is an observation to check with you, not a conclusion.</p>
+<div class="where"><p><a href="#">tiwariramanath@gmail.com</a></p><small><a href="https://rntiwari.webflow.io/">rntiwari↗</a></small></div>
+</div></header>
+
+<section id="summary" class="alt"><div class="wrap">
+<p class="eyebrow">The short version</p>
+<h2>What I noticed, what I would do, and what I need from you</h2>
+<p class="lead">Read this part if you only have a minute.</p>
+<div class="three">
+<div><h3>What I noticed</h3><ul><li>The brand, services and leadership content are a solid base.</li><li>The page is long, and several sections repeat similar ideas.</li><li>Enquiry actions compete, and some text is small or low in contrast.</li></ul></div>
+<div><h3>What I would do</h3><ul><li>Keep 7 sections on the landing page.</li><li>Move the detail of 6 sections to inner pages.</li><li>Give visitors one clear next step, with consistent, accessible components.</li></ul></div>
+<div><h3>What I need from you</h3><ul><li>The main audience and main action for Prestigious PM.</li><li>Whether the logo and business name stay as they are.</li><li>Any analytics or feedback you already have.</li></ul></div>
+</div>
+</div></section>
+
+<section id="priorities"><div class="wrap">
+<p class="eyebrow">Priorities</p>
+<h2>Five things I would change first</h2>
+<p class="lead">Each one points to the sections of the Prestigious PM homepage it affects. Select a number to jump to it.</p>
+<ol class="prio"><li><span class="pn">1</span><div><b>A clearer first impression</b><p>Lead with who the service is for and why it matters.</p></div><div class="where"><small>On Prestigious PM</small><a href="#s3">3</a>, <a href="#s4">4</a>, <a href="#s5">5</a></div></li><li><span class="pn">2</span><div><b>Simpler navigation and content order</b><p>Fewer competing blocks and a clearer reading order.</p></div><div class="where"><small>On Prestigious PM</small><a href="#s1">1</a>, <a href="#s6">6</a>, <a href="#s13">13</a></div></li><li><span class="pn">3</span><div><b>One visible, consistent enquiry action</b><p>Show the same primary action the same way each time.</p></div><div class="where"><small>On Prestigious PM</small><a href="#s3">3</a>, <a href="#s11">11</a>, <a href="#s13">13</a></div></li><li><span class="pn">4</span><div><b>Stronger trust cues</b><p>Place proof points close to the decisions they support.</p></div><div class="where"><small>On Prestigious PM</small><a href="#s7">7</a>, <a href="#s8">8</a>, <a href="#s9">9</a></div></li><li><span class="pn">5</span><div><b>Accessible, consistent patterns</b><p>Shared components with clear states and readable type.</p></div><div class="where"><small>On Prestigious PM</small><a href="#s3">3</a>, <a href="#s9">9</a>, <a href="#s11">11</a></div></li></ol>
+<div class="jr" aria-label="Visitor journey"><div class=""><strong>Understand</strong><span>What is this, and is it for me?</span><small>Sections <a href="#s3">3</a>, <a href="#s4">4</a>, <a href="#s5">5</a></small></div><div class=""><strong>Explore</strong><span>What do they offer, and where?</span><small>Sections <a href="#s6">6</a>, <a href="#s10">10</a>, <a href="#s12">12</a></small></div><div class=""><strong>Trust</strong><span>Can I rely on them?</span><small>Sections <a href="#s7">7</a>, <a href="#s8">8</a>, <a href="#s9">9</a></small></div><div class="last"><strong>Enquire</strong><span>What is my next step?</span><small>Sections <a href="#s11">11</a>, <a href="#s13">13</a></small></div></div>
+</div></section>
+
+<section id="landing" class="alt"><div class="wrap">
+<p class="eyebrow">Landing page</p>
+<h2>A simpler landing page, with the detail one click away</h2>
+<p class="lead">Nothing is thrown away. Seven sections stay as they are. Six keep a short version and send the full detail to a page of its own.</p>
+<div class="panel"><ul class="tree"><li><span class="home">Landing page</span>
+<ul>
+<li><div class="box">Services</div><small>From 6</small></li>
+<li><div class="box">Property Types</div><small>From 4</small></li>
+<li><div class="box">About</div><small>From 8, 9</small></li>
+<li><div class="box">Service Areas</div><small>From 12</small></li>
+<li><div class="box">Community Estimator</div><small>From 10</small></li>
+<li><div class="box">Contact and Enquiry</div><small>From 11, 13</small></li>
+<li><div class="box">Resident Portal and Resources</div><small>From 1</small></li>
+</ul></li></ul></div>
+<div class="panel"><h3>Keep on the landing page</h3><div class="kr"><span><b class="n">1</b><b>Header and navigation</b></span><span>Gives orientation and quick access to key pages.</span></div><div class="kr"><span><b class="n">2</b><b>LCAM announcement</b></span><span>Useful news, kept compact while it is current so it does not dominate.</span></div><div class="kr"><span><b class="n">3</b><b>Hero: Elevate Your Community</b></span><span>Communicates the core value proposition immediately.</span></div><div class="kr"><span><b class="n">4</b><b>Audience positioning</b></span><span>Helps visitors quickly recognise whether the service fits them.</span></div><div class="kr"><span><b class="n">5</b><b>Company value proposition</b></span><span>Reinforces the main benefit, kept short so it does not repeat the hero.</span></div><div class="kr"><span><b class="n">7</b><b>Client testimonial</b></span><span>One strong proof point adds reassurance near decision making content.</span></div><div class="kr"><span><b class="n">13</b><b>Closing CTA and footer</b></span><span>Provides a clear final next step and site navigation.</span></div></div>
+<div class="panel"><h3>Move to an inner page, leaving a short version here</h3><div class="mvlist"><div class="mv"><div class="mvname"><b class="n">6</b><b>Comprehensive services</b></div><div><small>Stays on the landing page</small>Short summary</div><div><small>Full version moves to</small>Services</div><div><small>Why</small>Keeps the page easy to scan while giving interested visitors full depth.</div></div><div class="mv"><div class="mvname"><b class="n">8</b><b>Leadership and founder profile</b></div><div><small>Stays on the landing page</small>Short introduction</div><div><small>Full version moves to</small>About</div><div><small>Why</small>Builds a human connection without making the page long.</div></div><div class="mv"><div class="mvname"><b class="n">9</b><b>Guiding principles</b></div><div><small>Stays on the landing page</small>A concise set</div><div><small>Full version moves to</small>About</div><div><small>Why</small>Shares values while preserving space on the homepage.</div></div><div class="mv"><div class="mvname"><b class="n">10</b><b>Community potential estimator</b></div><div><small>Stays on the landing page</small>Simple preview</div><div><small>Full version moves to</small>Community Estimator</div><div><small>Why</small>Keeps the homepage focused while supporting deeper interaction, if it is complex.</div></div><div class="mv"><div class="mvname"><b class="n">11</b><b>Property assessment and consultation form</b></div><div><small>Stays on the landing page</small>A clear CTA or short form</div><div><small>Full version moves to</small>Contact and Enquiry</div><div><small>Why</small>A shorter first step reduces friction; the longer qualification form lives on its own page.</div></div><div class="mv"><div class="mvname"><b class="n">12</b><b>South Florida service areas</b></div><div><small>Stays on the landing page</small>Compact summary</div><div><small>Full version moves to</small>Service Areas</div><div><small>Why</small>Confirms coverage without a long list of locations.</div></div></div></div>
+</div></section>
+
+<section id="audit"><div class="wrap">
+<p class="eyebrow">Section by section</p>
+<h2>The Prestigious PM homepage, one section at a time</h2>
+<p class="lead">Each row shows the action first, then what is working and what could be better.</p>
+<div class="legend"><span class="tag keep">Keep on landing page</span><span class="tag move">Short version here, detail on inner page</span></div>
+<div class="audit">
+<div class="shot"><div class="img"><img src="assets/homepage-screenshot.png" alt="Full page screenshot of the Prestigious PM homepage"><a class="mk l" href="#s1" style="top:calc(0.6% - 12px)" aria-label="Section 1">1</a><a class="mk r" href="#s2" style="top:calc(2.78% - 12px)" aria-label="Section 2">2</a><a class="mk l" href="#s3" style="top:calc(8.13% - 12px)" aria-label="Section 3">3</a><a class="mk r" href="#s4" style="top:calc(15.13% - 12px)" aria-label="Section 4">4</a><a class="mk l" href="#s5" style="top:calc(21.06% - 12px)" aria-label="Section 5">5</a><a class="mk r" href="#s6" style="top:calc(31% - 12px)" aria-label="Section 6">6</a><a class="mk l" href="#s7" style="top:calc(41.6% - 12px)" aria-label="Section 7">7</a><a class="mk r" href="#s8" style="top:calc(50.3% - 12px)" aria-label="Section 8">8</a><a class="mk l" href="#s9" style="top:calc(59% - 12px)" aria-label="Section 9">9</a><a class="mk r" href="#s10" style="top:calc(67.9% - 12px)" aria-label="Section 10">10</a><a class="mk l" href="#s11" style="top:calc(78.7% - 12px)" aria-label="Section 11">11</a><a class="mk r" href="#s12" style="top:calc(87.1% - 12px)" aria-label="Section 12">12</a><a class="mk l" href="#s13" style="top:calc(95.06% - 12px)" aria-label="Section 13">13</a></div><small>Select a number to jump to its notes</small></div>
+<div>
+<details class="row" id="s1" open><summary><span class="badge">1</span><span class="rt"><b>Header and navigation</b><span class="act">Keep logo, menu, phone and portal login together.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Clear logo, phone number and Portal Login button.</p></div><div class="o"><span>Opportunity to improve</span><p>The menu appears lower down here; confirm its place.</p></div></div></details>
+<details class="row" id="s2" open><summary><span class="badge">2</span><span class="rt"><b>LCAM announcement</b><span class="act">Keep it slim and add the date once confirmed.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A short, timely message with a clear Learn More button.</p></div><div class="o"><span>Opportunity to improve</span><p>Easy to miss, and no date is shown yet.</p></div></div></details>
+<details class="row" id="s3" open><summary><span class="badge">3</span><span class="rt"><b>Hero: Elevate Your Community</b><span class="act">Add a subtle overlay and give one button priority.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Strong headline, building photo and two clear buttons.</p></div><div class="o"><span>Opportunity to improve</span><p>White text over the photo may lose contrast.</p></div></div></details>
+<details class="row" id="s4" open><summary><span class="badge">4</span><span class="rt"><b>Audience positioning</b><span class="act">Link each audience to its own page.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Names condos, HOAs and investment properties up front.</p></div><div class="o"><span>Opportunity to improve</span><p>Heading and photos feel separate from the hero.</p></div></div></details>
+<details class="row" id="s5" open><summary><span class="badge">5</span><span class="rt"><b>Company value proposition</b><span class="act">Shorten to one benefit line, slightly larger text.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A bold burgundy band with a friendly, memorable line.</p></div><div class="o"><span>Opportunity to improve</span><p>Supporting copy is small and echoes the hero.</p></div></div></details>
+<details class="row" id="s6" open><summary><span class="badge">6</span><span class="rt"><b>Comprehensive services</b><span class="act">Use equal cards, brief text and a Services page.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Cards with icons make services quick to scan.</p></div><div class="o"><span>Opportunity to improve</span><p>Cards differ in size and the small text is light.</p></div></div></details>
+<details class="row" id="s7" open><summary><span class="badge">7</span><span class="rt"><b>Client testimonial</b><span class="act">Keep one strong quote; add a name if approved.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A client quote with a star rating adds reassurance.</p></div><div class="o"><span>Opportunity to improve</span><p>Only a location is shown, not a client name.</p></div></div></details>
+<details class="row" id="s8" open><summary><span class="badge">8</span><span class="rt"><b>Leadership and founder profile</b><span class="act">Show a short intro and link to the About page.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A warm portrait and clear leadership label.</p></div><div class="o"><span>Opportunity to improve</span><p>The quote is long for a homepage introduction.</p></div></div></details>
+<details class="row" id="s9" open><summary><span class="badge">9</span><span class="rt"><b>Guiding principles</b><span class="act">Increase contrast and size; link to About.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Four values, each short and easy to read.</p></div><div class="o"><span>Opportunity to improve</span><p>Icons and text are light and small.</p></div></div></details>
+<details class="row" id="s10" open><summary><span class="badge">10</span><span class="rt"><b>Community potential estimator</b><span class="act">State the assumptions; consider a dedicated page.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>Interactive sliders make the value tangible.</p></div><div class="o"><span>Opportunity to improve</span><p>Savings figures need a visible basis.</p></div></div></details>
+<details class="row" id="s11" open><summary><span class="badge">11</span><span class="rt"><b>Property assessment and consultation form</b><span class="act">Darken placeholders and keep labels visible.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A short form beside clear benefits and a strong button.</p></div><div class="o"><span>Opportunity to improve</span><p>Light placeholder text could look like input.</p></div></div></details>
+<details class="row" id="s12" open><summary><span class="badge">12</span><span class="rt"><b>South Florida service areas</b><span class="act">One short sentence, plus a Service Areas page.</span></span><span class="tag move">Short version here, detail on inner page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A clear list of cities with a short introduction.</p></div><div class="o"><span>Opportunity to improve</span><p>A long paragraph sits above the location chips.</p></div></div></details>
+<details class="row" id="s13" open><summary><span class="badge">13</span><span class="rt"><b>Closing CTA and footer</b><span class="act">Add one enquiry button and tidy the footer links.</span></span><span class="tag keep">Keep on landing page</span></summary>
+<div class="two"><div class="w"><span>What is working</span><p>A friendly closing prompt with a warm photo.</p></div><div class="o"><span>Opportunity to improve</span><p>No clear enquiry button is visible here.</p></div></div></details>
+
+</div>
+</div>
+</div></section>
+
+<section id="process" class="alt"><div class="wrap">
+<p class="eyebrow">Process</p>
+<h2>How I would work with the Prestigious PM team</h2>
+<p class="lead">My usual approach, six steps, shown with what each means for Prestigious PM.</p>
+<div class="steps"><div class="step"><span class="n">01</span><b>Understand</b><p>Business, audiences, goals and constraints.</p><small>For Prestigious PM</small><p>Condominium boards, HOAs and investment property owners.</p></div><div class="step"><span class="n">02</span><b>Review</b><p>Find friction, gaps and strengths in the existing experience.</p><small>For Prestigious PM</small><p>The section by section review above.</p></div><div class="step"><span class="n">03</span><b>Prioritise</b><p>Decide what matters most and define the visitor journey.</p><small>For Prestigious PM</small><p>Which message and action should lead for each audience.</p></div><div class="step"><span class="n">04</span><b>Structure</b><p>Sitemap, information architecture and wireframes.</p><small>For Prestigious PM</small><p>A lighter landing page that points to inner pages.</p></div><div class="step"><span class="n">05</span><b>Design and validate</b><p>A clear, accessible and responsive interface, prototyped and validated.</p><small>For Prestigious PM</small><p>Consistent patterns for services, trust and enquiry actions.</p></div><div class="step"><span class="n">06</span><b>Hand off</b><p>Reusable Figma components, specifications and developer handoff.</p><small>For Prestigious PM</small><p>A system the team can extend without redesigning pages.</p></div></div>
+</div></section>
+
+<section id="look"><div class="wrap">
+<p class="eyebrow">Look and feel</p>
+<h2>Keep the identity, fix the details</h2>
+<p class="lead">I would work from the existing Prestigious PM look. Any change to the logo, name, colours or type would be agreed with you first.</p>
+<div class="grid2">
+<div class="panel"><h3>Keep</h3><div class="list"><div>The burgundy and navy identity</div><div>Serif headlines with character</div><div>Photography of communities and buildings</div><div>Services, estimator and leadership content</div><div>South Florida coverage as clear location chips</div></div></div>
+<div class="panel"><h3>Improve</h3><div class="list"><div>Text contrast over photos and on the red band</div><div>Small, light supporting text</div><div>Competing buttons and repeated enquiry paths</div><div>Page length and repeated ideas</div><div>A closing call to action with no button</div></div></div>
+<div class="panel"><h3>Colour roles</h3>
+<div class="sw">
+<div><i style="background:#7e2530"></i><b>Burgundy</b><span>Key actions</span></div>
+<div><i style="background:#19233a"></i><b>Navy</b><span>Headings</span></div>
+<div><i style="background:#2b2d31"></i><b>Charcoal</b><span>Body text</span></div>
+<div><i style="background:#e9ebee;border-color:#cfd3d9"></i><b>Light grey</b><span>Surfaces</span></div>
+<div><i style="background:#fff;border-color:#cfd3d9"></i><b>White</b><span>Background</span></div>
+</div><p class="note">Exact values to be confirmed from the Prestigious PM brand files.</p></div>
+<div class="panel"><h3>Typography hierarchy</h3><div class="type">
+<div><small>Heading</small><span style="font-family:var(--serif);font-size:30px;line-height:1.25;font-weight:700;color:var(--navy)">Clear and confident</span></div>
+<div><small>Subheading</small><span style="font-size:18px;font-weight:700;color:var(--navy)">Grouped and easy to scan</span></div>
+<div><small>Body</small><span>Calm, readable and concise</span></div>
+<div><small>Label</small><span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--bur)">Buttons and tags</span></div>
+</div></div>
+<div class="panel"><h3>Logo and business name</h3><p style="margin:0">Retain the existing identity unless you confirm a rebrand is in scope.</p></div>
+<div class="panel"><h3>Design system</h3><p style="margin:0">One documented set of colours, type, spacing, buttons, cards and form fields in Figma.</p></div>
+<div class="panel" style="grid-column:1/-1"><h3>Accessibility and responsive design</h3><p style="margin:0">Strong contrast, readable type, keyboard access, clear focus states, labelled fields and touch friendly controls, on layouts that stack cleanly on small screens.</p></div>
+</div>
+</div></section>
+
+<section id="handoff" class="alt"><div class="wrap">
+<p class="eyebrow">What you would receive</p>
+<h2>Figma and developer handoff</h2>
+<p class="lead" style="margin-bottom:28px">Everything the developers need to build it without guessing.</p>
+<div class="panel hand"><div>Sitemap and prioritised content structure</div><div>Key user flows and wireframes</div><div>High-fidelity UI and interactive prototype</div><div>Reusable Figma components and documented styles</div><div>Accessibility and responsive behaviour notes</div><div>Developer-ready specifications and asset handoff</div></div>
+</div></section>
+
+<section id="questions"><div class="wrap">
+<p class="eyebrow">Questions</p>
+<h2>Twelve questions that would shape the work</h2>
+<p class="lead">Grouped by theme, so each one can go to whoever knows the answer.</p>
+<div class="qgs"><div class="qg"><h3>Audience and goals</h3><div class="q"><b>6</b><span>Who are the primary audiences for this homepage, and which audience is the highest priority?</span></div><div class="q"><b>7</b><span>What is the main action you want visitors to take: request a proposal, schedule a consultation, call, or access the resident portal?</span></div><div class="q"><b>8</b><span>Which services and locations should receive the most visibility?</span></div><div class="q"><b>12</b><span>What would make this redesign successful? Are there measurable goals such as more qualified enquiries?</span></div></div><div class="qg"><h3>Brand and identity</h3><div class="q"><b>1</b><span>Do you currently have an established design style or visual direction for the brand?</span></div><div class="q"><b>2</b><span>Do you have a brand style guide or design system covering logo usage, colours, typography and UI components?</span></div><div class="q"><b>4</b><span>Are you considering changes to the current logo or business name, or should the existing identity be retained?</span></div><div class="q"><b>5</b><span>Would you be open to refining the colour palette and typography if the proposed design improves usability, accessibility and brand consistency?</span></div></div><div class="qg"><h3>Evidence and references</h3><div class="q"><b>9</b><span>Do you have analytics, heatmaps, user feedback or enquiry data that can help identify visitor behaviour and drop-off?</span></div><div class="q"><b>10</b><span>Are there competitor websites or reference designs you would like us to consider?</span></div></div><div class="qg"><h3>Scope and approval</h3><div class="q"><b>3</b><span>How many websites or active web properties does the company currently manage?</span></div><div class="q"><b>11</b><span>Who will review and approve the design, and are there technical or content constraints?</span></div></div></div>
+<div class="close" style="margin-top:56px"><p>I’m genuinely excited about the opportunity to work with the team and contribute to a clearer, more useful digital experience for Prestigious PM.</p>
+  <small>Ramanath Tiwari, Lead UI/UX Designer</small><small>tiwariramanath@gmail.com</small><small><a href="https://rntiwari.webflow.io/">rntiwari↗</a></small></div>
+</div></section>
+
+<footer><div class="wrap"></div></footer>
+
+<script>
+(function(){
+  function openFromHash(){
+    var h=location.hash;
+    if(/^#s\d+$/.test(h)){ var d=document.querySelector(h); if(d&&d.tagName==='DETAILS'){ d.open=true; } }
+  }
+  window.addEventListener('hashchange',openFromHash); openFromHash();
+  var links=document.querySelectorAll('.top nav a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href')==='#'+e.target.id); }); } });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
